@@ -1,0 +1,30 @@
+---
+layout: cover
+title:  Home
+---
+
+  <div class="container text-center">
+    <h1>{{ site.title }}
+      <small class="help-block">{{ site.tagline }}</small>
+    </h1>
+
+    <br>
+
+    <div class="btn-group btn-group-lg">
+      <a class="btn btn-lg btn-primary" href="{{ site.baseurl }}dashboard/">
+        See Demo
+        <small>v{{ site.version }}</small>
+      </a>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <!-- Social Media Links -->
+    <div class="social-media-links text-center">
+      {% for social in site.data.pages.social %}
+      <a href="{{ social.link }}" title="{{ social.label }}" target="_blank">
+        <i class="{{ social.icon }}"></i>
+      </a>
+      {% endfor %}
+    </div>
+  </div>

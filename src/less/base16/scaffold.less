@@ -1,0 +1,18 @@
+
+html,
+body {
+  height: 100%;
+}
+
+::selection {
+  color: lighten(@text-color, 10%);
+  background-color: fade(darken(@content-basecolor, 15%), 15%);
+}
+::-moz-selection {
+  color: lighten(@text-color, 10%);
+  background-color: fade(darken(@content-basecolor, 15%), 75%);
+}
+
+*:focus {
+  outline: 0 none !important;
+}

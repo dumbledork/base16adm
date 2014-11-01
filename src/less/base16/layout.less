@@ -1,0 +1,147 @@
+
+// Dashboard Layout
+// -------------------------
+
+.content-wrapper {
+  .clearfix();
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.content,
+.sidebar {
+  padding-top: @navbar-height;
+}
+
+
+// Mixin: Content
+
+.content-model {
+  @media (max-width: @screen-xs-max) {
+    width: percentage((10 / @grid-columns));
+    margin-left: percentage((2 / @grid-columns));
+    width: auto;
+    margin-left: 64px;
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+
+  @media (min-width: @screen-sm) {
+    width: percentage((9 / @grid-columns));
+    margin-left: percentage((3 / @grid-columns));
+  }
+
+  @media (min-width: @screen-md) {
+    width: percentage((9 / @grid-columns));
+    margin-left: percentage((3 / @grid-columns));
+  }
+
+  @media (min-width: @screen-lg) {
+    width: percentage((10 / @grid-columns));
+    margin-left: percentage((2 / @grid-columns));
+  }
+}
+
+
+// Content: Right Panel
+
+.content {
+  .content-model();
+  .transition(all .2s linear .2s);
+  min-height: 100%;
+}
+
+
+// Mixin: Sidebar
+
+.sidebar-model {
+  @media (max-width: @screen-xs-max),
+         (max-width: @screen-xs) {
+    width: 64px;
+  }
+
+  @media (min-width: @screen-sm) {
+    width: percentage((3 / @grid-columns));
+  }
+
+  @media (min-width: @screen-md) {
+    width: percentage((3 / @grid-columns));
+  }
+
+  @media (min-width: @screen-lg) {
+    width: percentage((2 / @grid-columns));
+  }
+}
+
+
+// Sidebar: Left Panel
+
+.sidebar {
+  .sidebar-model();
+  .translate(0, 0);
+  position: fixed;
+  z-index: 1;
+  height: 100%;
+
+  &.no-csstransforms {
+    top: 0;
+    left: 0;
+  }
+}
+
+
+// Sidebar: minified mode
+
+.sidebar {
+  .transition(width .3s ease);
+
+  .label-full {
+    .transition(all .3s ease);
+    .translate(0, 0);
+    position: none;
+    z-index: 1;
+    opacity: 1;
+  }
+
+  .label-icon {
+    .transition(all .9s ease);
+    opacity: 0;
+  }
+}
+
+.sidebar.mini {
+  // transform:translate is handled via jQuery
+  .transition(width .3s ease);
+  width: 64px;
+
+  .label-full,
+  .list-group-item > i {
+    .transition(all .4s ease);
+    .translate(-999px, 0);
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+  }
+
+  .label-icon {
+    .transition(all .5s ease);
+    height: auto;
+    opacity: 1;
+    text-align: center;
+  }
+
+  .label-icon .badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+  }
+
+  .sidebar-footlinks a {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 2px;
+    padding-right: 2px;
+  }
+}

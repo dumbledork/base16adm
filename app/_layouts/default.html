@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <meta charset="utf-8">
+
+  <title>
+    {% if page.title == "Home" %}
+      {{ site.title }} - {{ site.tagline }}
+    {% else %}
+      {{ page.title }} | {{ site.title }} - {{ site.tagline }}
+    {% endif %}
+  </title>
+
+  <meta name="author" content="{{ site.author.name }}">
+  <meta name="description" content="{{ site.description }}">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat">
+  <link rel="stylesheet" href="{{ site.baseurl }}assets/css/ocean-dark.css">
+  <link rel="stylesheet" href="{{ site.baseurl }}assets/lib/octicons/octicons/octicons.css"/>
+  <link rel="stylesheet" href="{{ site.baseurl }}assets/lib/font-awesome/css/font-awesome.min.css">
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+</head>
+<body>
+
+
+  {% include header.html %}
+
+  <div class="content-wrapper">
+    <div class="sidebar" role="complementary">
+      {% include sidebar.html %}
+    </div>
+
+    <div class="content" role="main">
+      <div class="page-heading">
+        <div class="page-heading-col">
+          <h1>
+            <span>{{ page.title }}</span>
+            <small>{{ page.lead }}</small>
+          </h1>
+        </div>
+
+        <div class="page-heading-col page-heading-crumb">
+          {% if page.title != "Dashboard"  %}
+          <ol class="breadcrumb pull-right">
+            <li><a href="{{ site.baseurl }}dashboard">Dashboard</a></li>
+            <li>{{ page.title }}</li>
+          </ol>
+          {% endif %}
+        </div>
+      </div>
+      {{ content }}
+    </div>
+  </div><!-- end of .content-wrapper -->
+
+  <footer>
+    {% include footer.html %}
+  </footer>
+
+  <!-- jQuery stuff goes here -->
+  <script src="{{ site.baseurl }}assets/lib/jquery/dist/jquery.min.js"></script>
+  <script src="{{ site.baseurl }}assets/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+
+  <!-- Your application Javasscript goes here  -->
+  <script src="{{ site.baseurl }}assets/js/app.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+
+menu:
+  - label: "Dashboard"
+    icon:  "octicon octicon-dashboard"
+
+  - label: "Messages"
+    icon:  "octicon octicon-inbox"
+
+  - label: "Widgets"
+    icon:  "octicon octicon-gist"
+
+  - label: "Charts"
+    icon:  "octicon octicon-graph"
+
+  - label: "UI Elements"
+    icon:  "octicon octicon-device-desktop"
+
+  - label: "Forms"
+    icon: "octicon octicon-pencil"
+
+  - label: "Layouts"
+    icon:  "octicon octicon-three-bars"
+    submenu:
+    - ddheader: "User Login and Sign Up"
+    - label: "Login Page"
+      icon:  "octicon octicon-file-text"
+
+    - label: "Sign Up Page"
+      icon:  "octicon octicon-file-text"
+
+    - ddheader: "Blog Pages"
+    - label: "Blog"
+      icon:  "octicon octicon-file-text"
+
+    - label: "Blog Entry"
+      icon:  "octicon octicon-file-text"
+
+    - ddheader: "Templates"
+    - label: "Home Page"
+      icon:  "octicon octicon-file-text"
+
+    - label: "Contact Page"
+      icon:  "octicon octicon-file-text"
+
+    - label: "Blank Page"
+      icon:  "octicon octicon-file-text"
+
+    - label: "Error Page"
+      icon:  "octicon octicon-file-text"
+
+social:
+  - label: Github
+    icon:  "fa fa-3x fa-github"
+    link:  "https://github.com/pongstr"
+
+  - label: Twitter
+    icon:  "fa fa-3x fa-twitter"
+    link:  "https://twitter.com/pongstr"
+

@@ -1,0 +1,41 @@
+
+# Site Information
+# -----------------------------------------------------------------------------
+
+title:        "Base16 Admin"
+tagline:      "Just another Bootstrap admin template"
+version:      "0.1.0"
+
+author:
+  name:     "Pongstr Ordillo"
+  github:   "https://github.com/pongstr"
+  twitter:  "https://twitter.com/pongstr"
+  linked:   "https://ph.linkedin.com/pongstr"
+  avatar:   "https://avatars3.githubusercontent.com/u/962502?v=2&s=460"
+
+
+description: "Just another Bootstrap admin template."
+keywords:    ""
+
+
+# Repository
+repository:   ""
+issues:       ""
+
+
+# Format
+# -----------------------------------------------------------------------------
+markdown:     kramdown
+permalink:    pretty
+highlighter:  pygment
+paginate:     5
+
+
+# Build Info
+# -----------------------------------------------------------------------------
+source:       app
+
+# Server
+port:         4001
+baseurl:      /
+destination:  _gh_pages

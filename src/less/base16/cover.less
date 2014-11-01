@@ -1,0 +1,124 @@
+
+.cover {
+  position: relative;
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  height: 100%;
+
+  .cover-inner {
+    position: relative;
+    z-index: 2;
+    display: table-cell;
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+  }
+
+  .cover-inner article {
+    @media (max-width: @screen-xs) {
+      margin-left: (@grid-gutter-width - 10);
+      margin-right: (@grid-gutter-width - 10);
+    }
+
+    @media (min-width: @screen-sm),
+           (min-width: @screen-md) {
+      width:  75%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @media (min-width: @screen-lg) {
+      width: 50%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  &.cover-block,
+  &.cover-block .cover-inner {
+    display: block;
+  }
+
+  .social-media-links {
+    margin-top: @grid-gutter-width;
+    margin-bottom: @grid-gutter-width;
+  }
+}
+
+
+.cover {
+  background-color: @content-basecolor;
+}
+
+.social-media-links {
+  display: inline-block;
+}
+
+.social-media-links a {
+  .transition(color .3s ease);
+  display: inline-block;
+  padding-left: 5px;
+  padding-right: 5px;
+
+  &:hover {
+    .transition(color .3s ease);
+    color: @brand-primary;
+    text-decoration: none;
+  }
+}
+
+.btn-group-socialmedia {
+  margin-top: @grid-gutter-width;
+  margin-bottom: @grid-gutter-width;
+
+  &:before,
+  &:after {
+    display: block;
+    clear: both;
+    content: " ";
+  }
+}
+
+.socialbtn (@color) {
+  .transition(background-color 200ms ease);
+  color: #fff !important;
+  font-weight: bold;
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  background-color: @color;
+
+  &:hover {
+    .transition(background-color 200ms ease);
+    background-color: lighten(@color, 10%);
+  }
+
+  @media (max-width: @screen-xs) {
+    display: block;
+    float: left;
+    width: 48%;
+    margin: 2px;
+  }
+}
+
+ // Social Media Buttons
+.btn-facebook { .socialbtn(#3B5998); }
+.btn-github { .socialbtn(#222); }
+.btn-google   { .socialbtn(#D34836); }
+.btn-twitter  { .socialbtn(#55acee); }
+.btn-linkedin { .socialbtn(#4875B4); }
+
+.btn-brand {
+  color: #28c3ab;
+  border: 1px solid #28c3ab;
+  background-color: transparent;
+
+  &:hover {
+    color: lighten(#28c3ab, 10%);
+  }
+
+  &.btn-lg {
+    padding: 20px 25px;
+    border-width: 2px;
+  }
+}
+

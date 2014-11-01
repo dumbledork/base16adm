@@ -1,0 +1,69 @@
+
+
+  <div class="sidebar-inner">
+    <div class="list-group">
+    {% for item in site.data.pages.menu %}
+      {% if item.submenu %}
+    <div class="list-group-item dropdown">
+      <i class="octicon octicon-chevron-right hidden-xs pull-right"></i>
+      <a data-toggle="dropdown" href="#">
+      {% else %}
+        {% if page.title == item.label %}
+    <div class="list-group-item active">
+        {% else %}
+    <div class="list-group-item">
+        {% endif %}
+      <a href="{{ site.baseurl }}{{ item.label | downcase | replace: ' ', '-' }}" >
+      {% endif %}
+        <div class="label-icon">
+          {% if item.badge %}
+          <span class="badge badge-danger pull-right">{{ item.badge }}</span>
+          {% endif %}
+          <i class="mega-{{ item.icon }}"></i>
+        </div>
+
+        <div class="label-full">
+          {% if item.badge %}
+          <span class="badge badge-danger pull-right">{{ item.badge }}</span>
+          {% endif %}
+          <i class="{{ item.icon }}"></i> &nbsp; {{ item.label }}
+        </div>
+      </a>
+
+      {% if item.submenu %}
+      <ul class="dropdown-menu" role="menu">
+        {% for sub in item.submenu %}
+          {% if sub.ddheader %}
+        <li class="dropdown-header">{{ sub.ddheader }}<li>
+          {% endif %}
+          {% if sub.label %}
+        <li>
+          <a href="{{ site.baseurl }}{{ item.label | downcase | replace: ' ', '-' }}/{{ sub.label | downcase | replace: ' ', '-' }}">
+            <i class="{{ sub.icon }}"></i> &nbsp; {{ sub.label | replace: '-', ' ' }}
+          </a>
+        </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </div>
+    {% endfor %}
+    </div>
+
+
+  </div>
+
+    <div class="sidebar-footlinks text-center">
+      <a class="col-sm-4" href="#">
+        <i class="fa fa-2x fa-github"></i>
+        <small class="">Github</small>
+      </a>
+      <a class="col-sm-4" href="#">
+        <i class="fa fa-2x fa-cloud-download"></i>
+        <small class="">Download</small>
+      </a>
+      <a class="col-sm-4" href="#">
+        <i class="fa fa-2x fa-tag"></i>
+        <small class="">v0.1.0</small>
+      </a>
+    </div>

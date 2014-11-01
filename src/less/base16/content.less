@@ -1,0 +1,29 @@
+
+.content {
+  padding-left: (@grid-gutter-width / 2);
+  padding-right: (@grid-gutter-width / 2);
+  background-color: @content-basecolor;
+}
+
+.page-heading {
+  .clearfix();
+  display: table;
+  width: 100%;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  padding-bottom: (@grid-gutter-width / 2);
+  border-bottom: 1px solid lighten(@content-basecolor, 2%);
+  box-shadow: 0 1px 0 darken(@content-basecolor, 2%);
+
+  h1, h2, h3, h4,
+  .breadcrumb {
+    color: inherit;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .page-heading-col {
+    display: table-cell;
+    vertical-align: middle;
+  }
+}

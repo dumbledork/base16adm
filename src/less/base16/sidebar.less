@@ -1,0 +1,179 @@
+
+.sidebar {
+  background-color: lighten(@sidebar-basecolor, 1%);
+}
+
+.sidebar {
+  .label-full { display: block; }
+  .label-icon {
+    height: 0;
+    text-align: center;
+    opacity: 0;
+    overflow: hidden;
+  }
+
+  @media (max-width: @screen-xs),
+         (max-width: @screen-xs-max) {
+    .sidebar.mini();
+  }
+}
+
+.sidebar .list-group {
+  border-bottom: 1px solid darken(@sidebar-basecolor, 2%);
+}
+
+.sidebar-inner {
+  position: relative;
+  min-height: 100%;
+}
+
+.sidebar .list-group .list-group-item {
+  .clearfix();
+  .transition(background-color .2s ease);
+  margin-bottom: 0;
+  padding-top: (@grid-gutter-width / 2);
+  padding-bottom: (@grid-gutter-width / 2);
+  color: lighten(@sidebar-basecolor, 25%);
+  border-left: 0 none;
+  border-right: 0 none;
+  background-color: @sidebar-basecolor;
+  border-top-color: lighten(@sidebar-basecolor, 2%);
+  border-bottom-color: darken(@sidebar-basecolor, 2%);
+
+  &:hover {
+    .transition(background-color .1s linear);
+    background-color: lighten(@sidebar-basecolor, 1%);
+  }
+
+  > a, > a:hover, > a:active, > a:focus {
+    color: lighten(@sidebar-basecolor, 25%);
+    text-decoration: none;
+    outline: 0 none;
+  }
+
+  &:first-child {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+  &:last-child {
+    border-bottom-color: lighten(@sidebar-basecolor, 2%);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+
+    &.active,
+    &.open {
+      border-bottom-color: lighten(@sidebar-basecolor, 10%);
+    }
+  }
+
+  &.active,
+  &.active:focus {
+    .transition(background-color .2s ease);
+    color: @sidebar-basecolor;
+    border-top-color: lighten(@sidebar-basecolor, 10%);
+    background-color: lighten(@sidebar-basecolor, 5%);
+
+    > a { color: lighten(@sidebar-basecolor, 55%); }
+  }
+
+  &.active:hover {
+    .transition(color .2s ease);
+    .transition(background-color .2s ease);
+    color: lighten(@sidebar-basecolor, 25%);
+    box-shadow: none;
+    background-color: lighten(@sidebar-basecolor, 7.5%);
+  }
+
+  &.open {
+    border-top-color: lighten(@sidebar-basecolor, 10%);
+    background-color: lighten(@sidebar-basecolor, 7.5%);
+  }
+}
+
+
+.sidebar .dropdown-menu {
+  top: -2px;
+  left: 100%;
+  float: none;
+  margin: 0;
+  padding: 0;
+  background-color: @sidebar-basecolor;
+  border-color: @sidebar-basecolor;
+  border-color-left: transparent;
+  border-top-left-radius: 0;
+  border-top-right-radius: 2px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 2px;
+  box-shadow: none;
+  background-clip: border-box;
+
+  > li:first-child { border-top-right-radius: 2px; }
+  > li:last-child { border-bottom-right-radius: 2px; }
+
+  > li > a {
+    padding: 10px 18px;
+    color: lighten(@sidebar-basecolor, 25%);
+  }
+
+  > li > a:hover,
+  > li > a:active,
+  > li > a:focus {
+    color: lighten(@sidebar-basecolor, 25%);
+    background-color: lighten(@sidebar-basecolor, 7.5%)
+  }
+
+  .dropdown-header {
+    padding: 8px 18px;
+    background-color: darken(@sidebar-basecolor, 1%);
+    border-top: 1px solid darken(@sidebar-basecolor, 2%);
+    border-bottom: 1px solid darken(@sidebar-basecolor, 2%);
+    box-shadow: 0 1px 0 lighten(@sidebar-basecolor, 1%), 0 -1px 0 lighten(@sidebar-basecolor, 1%);
+
+    &:first-child {
+      border-top: 0 none;
+      box-shadow: none, 0 -1px 0 lighten(@sidebar-basecolor, 1%);
+    }
+  }
+
+  .divider {
+    border-bottom: 1px solid darken(@sidebar-basecolor, 1%);
+    background-color: lighten(@sidebar-basecolor, 5%);
+  }
+}
+
+.sidebar-footlinks {
+  .clearfix();
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: @zindex-dropdown;
+  width: 100%;
+  min-height: 40px;
+  background-color: darken(@sidebar-basecolor, 2%);
+
+  a, small {
+    color: lighten(@sidebar-basecolor, 15%);
+  }
+
+  small { display: block; }
+
+  a {
+    .transition(color .3s ease);
+    padding-top: 15px;
+    padding-bottom: 5px;
+    text-align: center;
+    text-decoration: none;
+    font-size: (@font-size-base - 3);
+
+    &:hover {
+      .transition(color .3s ease);
+      color: lighten(@sidebar-basecolor, 30%);
+    }
+  }
+}
+
+.img-vertical-margin {
+  margin-top: @grid-gutter-width;
+  margin-bottom: @grid-gutter-width;
+}

@@ -1,0 +1,104 @@
+
+
+header {
+  .clearfix();
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  min-height: @navbar-height;
+
+  .brand {
+    display: block;
+    // margin-top: 0;
+    // margin-bottom: 0;
+    margin-left: (@grid-gutter-width / 2);
+    margin-right: (@grid-gutter-width / 2);
+    font-size: 18px;
+
+    a { color: #fff; }
+
+    @media (max-width: @screen-xs),
+           (max-width: @screen-xs-max) {
+      display: none;
+    }
+  }
+
+  .brand-heading {
+    .sidebar-model();
+    .transition(width .3s ease);
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .brand-heading .navbar-btn {
+    .navbar-vertical-align(32px);
+    position: relative;
+    float: left;
+    margin-top: 9px;
+    margin-bottom: 9px;
+    margin-left: (@navbar-padding-horizontal / 2);
+    margin-right: (@navbar-padding-horizontal / 2);
+    padding: 9px 10px;
+  }
+
+  .brand-navigation {
+    .content-model();
+  }
+
+  .brand-navigation .navbar-default {
+    @media (max-width: @screen-xs),
+           (max-width: @screen-xs-max),
+           (min-width: @screen-sm),
+           (min-width: @screen-md),
+           (min-width: @screen-lg) {
+      margin-top: 0;
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+  }
+}
+
+
+header {
+  background-color: @header-basecolor;
+
+  .brand-heading {
+    padding: 0;
+    border-color: darken(@header-basecolor, 6.5%);
+    background-color: darken(@header-basecolor, 5%);
+  }
+
+  .brand-heading .navbar-btn {
+    // float: right;
+    background-color: transparent;
+    background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+    border: 1px solid transparent;
+
+    // We remove the `outline` here, but later compensate by attaching `:hover`
+    // styles to `:focus`.
+    &:focus { outline: 0; }
+
+    // Bars
+    .icon-bar {
+      display: block;
+      width: 22px;
+      height: 3px;
+      border-radius: 0;
+      background-color: #fff;
+    }
+
+    .icon-bar + .icon-bar {
+      margin-top: 4px;
+    }
+  }
+
+  .brand-navigation { padding: 0; }
+
+  .brand-navigation .navbar-default {
+    border-color: transparent;
+    background-color: darken(@header-basecolor, 2%);
+  }
+}

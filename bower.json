@@ -1,0 +1,17 @@
+{
+  "name": "base16adm",
+  "version": "0.1.0",
+  "description": "Just another Bootstrap Admin Template",
+  "author": "Pongstr Ordillo",
+  "email": "twiz.tickler@gmail.com",
+  "private": "true",
+  "license": "MIT",
+  "dependencies": {
+    "jquery": "~2.1.1",
+    "bootstrap": "~3.2.0",
+    "octicons": "~2.1.2",
+    "normalize.css": "~3.0.2",
+    "font-awesome": "~4.2.0",
+    "trumbowyg": "~1.1.7"
+  }
+}
