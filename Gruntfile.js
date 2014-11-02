@@ -17,7 +17,7 @@ module.exports = function(grunt) {
       app:    'app',
       src:    'src',
       dist:   'dist',
-      test:   'test',
+      build:  '_gh_pages',
       bower:  'bower_components',
     },
     pkg: grunt.file.readJSON('package.json'),
@@ -25,91 +25,41 @@ module.exports = function(grunt) {
             ' * <%= pkg.license %> \n' +
             ' */',
 
-    copy: {
-      app: {
-        files: [
-          {
-            expand: true,
-            cwd: '<%= site.app %>',
-            src: [
-              'app/**/*.*',
-              'assets/css/**/*.*',
-              'assets/img/**/*.*',
-              'module/**/*.*',
-              'error.html',
-              'index.html'
-            ],
-            dest: '<%= site.dist %>'
-          }
-        ]
+    jekyll: {
+      options: {
+        // bundleExec: true,
+        src: '<%= site.app %>'
+      },
+      dist: {
+        options: {
+          dest: '<%= site.dist %>',
+          config: '_config.yml'
+        }
       }
     },
 
+    clean: [
+      '<%= site.dist %>/assets/lib',
+      '<%= site.dist %>/assets/css',
+      '<%= site.dist %>/assets/js',
+      '<%= site.dist %>/_includes',
+      '<%= site.dist %>/_layouts'
+    ],
+
     jshint: {
       init: {
-        src: [
-          'Gruntfile.js',
-          'karma.conf.js'
-        ]
+        src: ['Gruntfile.js']
       },
       app: {
         options: {
           jshintrc: '.jshintrc'
         },
-        src: [
-          '<%= site.app %>/app/**/*.js',
-          '<%= site.app %>/module/**/**/*.js'
-        ]
-      }
-    },
-
-    karma: {
-      app: {
-        configFile: 'karma.conf.js',
-        singleRun: true
-      }
-    },
-
-    concat: {
-      app: {
-        options: {
-          sourceMap: true,
-          sourceMapName: '<%= site.dist %>/app/<%= pkg.name %>.min.js.map',
-          separator: ';'
-        },
-        src: ['<%= site.app %>/app/**/*.js'],
-        dest: '<%= site.dist %>/app/<%= pkg.name %>.js'
-      },
-      module: {
-        options: {
-          sourceMap: true,
-          sourceMapName: '<%= site.dist %>/module/modules.min.js.map',
-          separator: ';'
-        },
-        src: ['<%= site.app %>/module/**/**/*.js'],
-        dest: '<%= site.dist %>/module/modules.js'
-      }
-    },
-
-    uglify: {
-      options: {
-        mangle: false,
-        preserveComments: false
-      },
-      app: {
-        files: {
-          '<%= site.dist %>/app/<%= pkg.name %>.min.js': [
-            '<%= site.dist %>/app/<%= pkg.name %>.js'
-          ],
-          '<%= site.dist %>/module/modules.min.js': [
-            '<%= site.dist %>/module/modules.js'
-          ]
-        }
+        src: ['<%= site.app %>/assets/js/**/*.js']
       }
     },
 
     less: {
-      app: {
+      'ocean-dark': {
         options: {
           strictMath: true,
           sourceMap: false
@@ -117,10 +67,13 @@ module.exports = function(grunt) {
         files: {
           '<%= site.app %>/assets/css/ocean-dark.css': [
             '<%= site.src %>/less/ocean-dark/ocean-dark.less'
+          ],
+          '<%= site.dist %>/assets/css/ocean-dark.css': [
+            '<%= site.src %>/less/ocean-dark/ocean-dark.less'
           ]
         }
       },
-      dist: {
+      'ocean-dark-dist': {
         options: {
           strictMath: true,
           sourceMap: true,
@@ -129,26 +82,59 @@ module.exports = function(grunt) {
         files: {
           '<%= site.app %>/assets/css/ocean-dark.min.css': [
             '<%= site.src %>/less/ocean-dark/ocean-dark.less'
+          ],
+          '<%= site.dist %>/assets/css/ocean-dark.min.css': [
+            '<%= site.src %>/less/ocean-dark/ocean-dark.less'
+          ]
+        }
+      },
+      'ocean-light': {
+        options: {
+          strictMath: true,
+          sourceMap: false
+        },
+        files: {
+          '<%= site.app %>/assets/css/ocean-light.css': [
+            '<%= site.src %>/less/ocean-light/ocean-light.less'
+          ],
+          '<%= site.dist %>/assets/css/ocean-light.css': [
+            '<%= site.src %>/less/ocean-light/ocean-light.less'
+          ]
+        }
+      },
+      'ocean-light-dist': {
+        options: {
+          strictMath: true,
+          sourceMap: true,
+          compress: true
+        },
+        files: {
+          '<%= site.app %>/assets/css/ocean-light.min.css': [
+            '<%= site.src %>/less/ocean-light/ocean-light.less'
+          ],
+          '<%= site.dist %>/assets/css/ocean-light.min.css': [
+            '<%= site.src %>/less/ocean-light/ocean-light.less'
           ]
         }
       }
     },
 
     processhtml: {
-      app: {
+      dist: {
         options: {
-          process: true,
           data: {
-            appcss: '/assets/css/<%= pkg.name %>.min.css',
-            appjs: '/app/<%= pkg.name %>.min.js',
-            modulejs: '/module/modules.min.js'
+            css: '/assets/css/ocean-dark.min.less',
+            js:  '/assets/js/app.js'
           }
         },
         files: [
           {
             expand: true,
-            cwd: '<%= site.app %>',
-            src: ['*.html'],
+            cwd: '<%= site.dist %>',
+            src: [
+              '*.html',
+              '**/*.html'
+            ],
             dest: '<%= site.dist %>',
             ext: '.html'
           }
@@ -157,100 +143,73 @@ module.exports = function(grunt) {
     },
 
     htmlmin: {
-      app: {
+      dist: {
         options: {
-          // lint: true,                // breaks entire production build process if enabled, must set exemptions for angular markup
-          useShortDoctype: true,
-          removeComments:   true,
           collapseWhitespace: true,
-          preserveLineBreaks: false,
-          processScripts: ['text/ng-template'],
-          minifyJS: true
+          preserveLineBreaks: true
         },
         files: [
           {
             expand: true,
             cwd: '<%= site.dist %>',
-            src: '*.html',
-            dest: '<%= site.dist %>'
-          },
-          {
-            expand: true,
-            cwd: '<%= site.app %>',
-            src: 'modules/**/**/*.html',
+            src: [
+              '*.html',
+              '**/*.html'
+            ],
             dest: '<%= site.dist %>'
           }
         ]
       }
     },
 
-    open: {
-      firefox: {
-        path: 'http://localhost:9001',
-        app: 'Firefox',
-        delay: 1000
+    prettify: {
+      options: {
+        config: '.prettifyrc'
       },
-      safari: {
-        path: 'http://localhost:9001',
-        app: 'Safari',
-        delay: 1000
-      },
-      ie: {
-        path: 'http://localhost:9001',
-        app: 'Internet Explorer',
-        delay: 1000
+      dist: {
+        expand: true,
+        cwd: '<%= site.dist %>',
+        ext: '.html',
+        src: ['*.html', '**/*.html'],
+        dest: '<%= site.dist %>'
       }
-    },
-
-    watch: {
-      jshint: {
-        files: [
-          '<%= site.app %>/app/**/*.js',
-          '<%= site.app %>/module/**/**/*.js'
-        ],
-        tasks: ['jshint:app']
-      },
-      less: {
-        files: [
-          '<%= site.src %>/less/*.less',
-          '<%= site.src %>/less/**/*.less'
-        ],
-        tasks: ['less:app']
-      }
-    },
-
+    }
   });
 
-  grunt.registerTask('default', []);
-
-  grunt.registerTask('build-css', [
-    'less'
+  grunt.registerTask('default', [
+    'jekyll:dist',
+    'less:ocean-dark',
+    'less:ocean-dark-dist',
+    'less:ocean-light',
+    'less:ocean-light-dist',
+    'processhtml:dist',
+    'prettify:dist'
   ]);
 
-  grunt.registerTask('watchless', [
-    'less:app',
-    'watch:less'
-  ]);
+  grunt.registerTask('theme', function (theme) {
+    var tasks = [
+      'jekyll:dist',
+      'processhtml:dist',
+      'prettify:dist'
+    ];
 
-  grunt.registerTask('test', [
-    'jshint:app',
-    // 'karma:app'
-  ]);
+    grunt.config.requires('site.dist');
 
-  grunt.registerTask('build', [
-    'less',
-    'jshint:app',
-    'copy:app',
-    'concat:app',
-    'concat:module',
-    'uglify:app',
-    'processhtml:app',
-    'htmlmin:app'
-  ]);
+    if (theme === 'light') {
+      grunt.config('site.dist', '_dist_ocean-light');
+      grunt.task.run([
+        'less:ocean-light',
+        'less:ocean-light-dist',
+      ]);
+    }
 
-  grunt.registerTask('preview', [
-    'open:preview',
-    'nodemon'
-  ]);
+    if (theme === 'dark') {
+      grunt.config('site.dist', '_dist_ocean-dark');
+      grunt.task.run([
 
+        'less:ocean-dark',
+        'less:ocean-dark-dist',
+      ]);
+    }
+  })
 };

@@ -18,10 +18,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta name="apple-mobile-web-app-capable" content="yes">
 
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat">
+  <!-- build:template
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,400,600,300|Montserrat:700,400">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/2.1.2/octicons.min.css">
+  <link rel="stylesheet" href="<%= css %>">
+   /build -->
+
+   <!-- build:remove -->
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,400,600,300|Montserrat:700,400">
   <link rel="stylesheet" href="{{ site.baseurl }}assets/css/ocean-dark.css">
   <link rel="stylesheet" href="{{ site.baseurl }}assets/lib/octicons/octicons/octicons.css"/>
   <link rel="stylesheet" href="{{ site.baseurl }}assets/lib/font-awesome/css/font-awesome.min.css">
+  <!-- /build -->
+
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -39,12 +49,17 @@
     </div>
   </div>
 
-  <!-- jQuery stuff goes here -->
+  <!-- build:template
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+  <script src="<%= js %>"></script>
+    /build -->
+
+   <!-- build:remove -->
   <script src="{{ site.baseurl }}assets/lib/jquery/dist/jquery.min.js"></script>
   <script src="{{ site.baseurl }}assets/lib/bootstrap/dist/js/bootstrap.min.js"></script>
-
-  <!-- Your application Javasscript goes here  -->
   <script src="{{ site.baseurl }}assets/js/app.js"></script>
+  <!-- /build -->
 
 </body>
 </html>
