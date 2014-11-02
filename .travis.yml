@@ -2,7 +2,8 @@ language: node_js
 node_js:
   - "0.10"
 before_install:
-  - rvm use 1.9.1 --fuzzy
+  - rvm install 2.1.3 --disable-binary
+  - rvm use 2.1.3 --default
   - gem install bundler
   - gem install github-pages
   - npm install -g grunt-cli
