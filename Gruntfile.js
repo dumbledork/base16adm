@@ -186,6 +186,9 @@ module.exports = function(grunt) {
     'prettify:dist'
   ]);
 
+  grunt.registerTask('test', [
+  ]);
+
   grunt.registerTask('theme', function (theme) {
     var tasks = [
       'jekyll:dist',
