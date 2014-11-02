@@ -45,7 +45,7 @@
 //
 //## Font, line-height, and color for body text, headings, and more.
 
-@font-family-sans-serif:  Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+@font-family-sans-serif:  "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 @font-family-serif:       Georgia, "Times New Roman", Times, serif;
 //** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
 @font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace;
@@ -68,8 +68,8 @@
 @line-height-computed:    floor((@font-size-base * @line-height-base)); // ~20px
 
 //** By default, this inherits from the `<body>`.
-@headings-font-family:    inherit;
-@headings-font-weight:    500;
+@headings-font-family:    Montserrat;
+@headings-font-weight:    400;
 @headings-line-height:    1.1;
 @headings-color:          inherit;
 
@@ -179,21 +179,21 @@
 //##
 
 //** `<input>` background color
-@input-bg:                       darken(@content-basecolor, 5%);
+@input-bg:                       darken(@content-basecolor, 1%);
 //** `<input disabled>` background color
 @input-bg-disabled:              fade(darken(@content-basecolor, 5%), 75%);
 
 //** Text color for `<input>`s
 @input-color:                    @text-color;
 //** `<input>` border color
-@input-border:                   darken(@content-basecolor, 7.5%);
+@input-border:                   darken(@content-basecolor, 2%);
 //** `<input>` border radius
 @input-border-radius:            @border-radius-base;
 //** Border color for inputs on focus
-@input-border-focus:             darken(@content-basecolor, 10%);
+@input-border-focus:             lighten(@content-basecolor, 15%);
 
 //** Placeholder text color
-@input-color-placeholder:        @gray-light;
+@input-color-placeholder:        lighten(@content-basecolor, 10%);
 
 //** Default `.form-control` height
 @input-height-base:              (@line-height-computed + (@padding-base-vertical * 2) + 2);

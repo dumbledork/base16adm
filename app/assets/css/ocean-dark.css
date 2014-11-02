@@ -881,7 +881,7 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 body {
-  font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 13px;
   line-height: 1.42857143;
   color: #616c85;
@@ -982,8 +982,8 @@ h6,
 .h4,
 .h5,
 .h6 {
-  font-family: inherit;
-  font-weight: 500;
+  font-family: Montserrat;
+  font-weight: 400;
   line-height: 1.1;
   color: inherit;
 }
@@ -2342,9 +2342,9 @@ output {
   font-size: 13px;
   line-height: 1.42857143;
   color: #616c85;
-  background-color: #20242c;
+  background-color: #292e38;
   background-image: none;
-  border: 1px solid #1b1e25;
+  border: 1px solid #272b35;
   border-radius: 2px;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
@@ -2353,20 +2353,20 @@ output {
   transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
 }
 .form-control:focus {
-  border-color: #16181d;
+  border-color: #4b5467;
   outline: 0;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(22, 24, 29, 0.6);
-  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(22, 24, 29, 0.6);
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(75, 84, 103, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(75, 84, 103, 0.6);
 }
 .form-control::-moz-placeholder {
-  color: #42464e;
+  color: #414859;
   opacity: 1;
 }
 .form-control:-ms-input-placeholder {
-  color: #42464e;
+  color: #414859;
 }
 .form-control::-webkit-input-placeholder {
-  color: #42464e;
+  color: #414859;
 }
 .form-control[disabled],
 .form-control[readonly],
@@ -3489,7 +3489,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   color: #616c85;
   text-align: center;
   background-color: #4e525c;
-  border: 1px solid #1b1e25;
+  border: 1px solid #272b35;
   border-radius: 2px;
 }
 .input-group-addon.input-sm {
@@ -6176,6 +6176,181 @@ body {
 *:focus {
   outline: 0 none !important;
 }
+.social-media-links {
+  display: inline-block;
+}
+.social-media-links a {
+  -webkit-transition: color 0.3s ease;
+  -o-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+  display: inline-block;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.social-media-links a:hover {
+  -webkit-transition: color 0.3s ease;
+  -o-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+  color: #ae4544;
+  text-decoration: none;
+}
+.btn-group-socialmedia {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.btn-group-socialmedia:before,
+.btn-group-socialmedia:after {
+  display: block;
+  clear: both;
+  content: " ";
+}
+.btn-facebook {
+  -webkit-transition: background-color 200ms ease;
+  -o-transition: background-color 200ms ease;
+  transition: background-color 200ms ease;
+  color: #fff !important;
+  font-weight: bold;
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  background-color: #3b5998;
+}
+.btn-facebook:hover {
+  -webkit-transition: background-color 200ms ease;
+  -o-transition: background-color 200ms ease;
+  transition: background-color 200ms ease;
+  background-color: #4c70ba;
+}
+@media (max-width: 767px) {
+  .btn-facebook {
+    display: block;
+    float: left;
+    width: 48%;
+    margin: 2px;
+  }
+}
+.btn-google {
+  -webkit-transition: background-color 200ms ease;
+  -o-transition: background-color 200ms ease;
+  transition: background-color 200ms ease;
+  color: #fff !important;
+  font-weight: bold;
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  background-color: #d34836;
+}
+.btn-google:hover {
+  -webkit-transition: background-color 200ms ease;
+  -o-transition: background-color 200ms ease;
+  transition: background-color 200ms ease;
+  background-color: #dc6e60;
+}
+@media (max-width: 767px) {
+  .btn-google {
+    display: block;
+    float: left;
+    width: 48%;
+    margin: 2px;
+  }
+}
+.btn-github {
+  -webkit-transition: background-color 200ms ease;
+  -o-transition: background-color 200ms ease;
+  transition: background-color 200ms ease;
+  color: #fff !important;
+  font-weight: bold;
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  background-color: #222222;
+}
+.btn-github:hover {
+  -webkit-transition: background-color 200ms ease;
+  -o-transition: background-color 200ms ease;
+  transition: background-color 200ms ease;
+  background-color: #3c3c3c;
+}
+@media (max-width: 767px) {
+  .btn-github {
+    display: block;
+    float: left;
+    width: 48%;
+    margin: 2px;
+  }
+}
+.btn-twitter {
+  -webkit-transition: background-color 200ms ease;
+  -o-transition: background-color 200ms ease;
+  transition: background-color 200ms ease;
+  color: #fff !important;
+  font-weight: bold;
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  background-color: #55acee;
+}
+.btn-twitter:hover {
+  -webkit-transition: background-color 200ms ease;
+  -o-transition: background-color 200ms ease;
+  transition: background-color 200ms ease;
+  background-color: #83c3f3;
+}
+@media (max-width: 767px) {
+  .btn-twitter {
+    display: block;
+    float: left;
+    width: 48%;
+    margin: 2px;
+  }
+}
+.btn-linkedin {
+  -webkit-transition: background-color 200ms ease;
+  -o-transition: background-color 200ms ease;
+  transition: background-color 200ms ease;
+  color: #fff !important;
+  font-weight: bold;
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  background-color: #4875b4;
+}
+.btn-linkedin:hover {
+  -webkit-transition: background-color 200ms ease;
+  -o-transition: background-color 200ms ease;
+  transition: background-color 200ms ease;
+  background-color: #6b90c4;
+}
+@media (max-width: 767px) {
+  .btn-linkedin {
+    display: block;
+    float: left;
+    width: 48%;
+    margin: 2px;
+  }
+}
+.btn-brand {
+  color: #28c3ab;
+  border: 1px solid #28c3ab;
+  background-color: transparent;
+}
+.btn-brand:hover {
+  color: #45d9c2;
+}
+.btn-brand.btn-lg {
+  padding: 20px 25px;
+  border-width: 2px;
+}
+.base16-login {
+  padding: 25px 30px;
+  border-radius: 2px;
+  border-top: 6px solid #ae4544;
+  box-shadow: 0 3px 6px rgba(32, 36, 44, 0.75);
+  background-color: #373d4b;
+}
+@media (max-width: 480px), (max-width: 767px) {
+  .base16-login {
+    width: 92%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+.form-control {
+  box-shadow: none;
+}
+.form-control:focus {
+  box-shadow: none;
+}
 .content-wrapper {
   position: relative;
   width: 100%;
@@ -6423,161 +6598,6 @@ body {
 }
 .cover {
   background-color: #2b303b;
-}
-.social-media-links {
-  display: inline-block;
-}
-.social-media-links a {
-  -webkit-transition: color 0.3s ease;
-  -o-transition: color 0.3s ease;
-  transition: color 0.3s ease;
-  display: inline-block;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-.social-media-links a:hover {
-  -webkit-transition: color 0.3s ease;
-  -o-transition: color 0.3s ease;
-  transition: color 0.3s ease;
-  color: #ae4544;
-  text-decoration: none;
-}
-.btn-group-socialmedia {
-  margin-top: 30px;
-  margin-bottom: 30px;
-}
-.btn-group-socialmedia:before,
-.btn-group-socialmedia:after {
-  display: block;
-  clear: both;
-  content: " ";
-}
-.btn-facebook {
-  -webkit-transition: background-color 200ms ease;
-  -o-transition: background-color 200ms ease;
-  transition: background-color 200ms ease;
-  color: #fff !important;
-  font-weight: bold;
-  font-family: "Helvetica Neue", Helvetica, sans-serif;
-  background-color: #3b5998;
-}
-.btn-facebook:hover {
-  -webkit-transition: background-color 200ms ease;
-  -o-transition: background-color 200ms ease;
-  transition: background-color 200ms ease;
-  background-color: #4c70ba;
-}
-@media (max-width: 480px) {
-  .btn-facebook {
-    display: block;
-    float: left;
-    width: 48%;
-    margin: 2px;
-  }
-}
-.btn-github {
-  -webkit-transition: background-color 200ms ease;
-  -o-transition: background-color 200ms ease;
-  transition: background-color 200ms ease;
-  color: #fff !important;
-  font-weight: bold;
-  font-family: "Helvetica Neue", Helvetica, sans-serif;
-  background-color: #222222;
-}
-.btn-github:hover {
-  -webkit-transition: background-color 200ms ease;
-  -o-transition: background-color 200ms ease;
-  transition: background-color 200ms ease;
-  background-color: #3c3c3c;
-}
-@media (max-width: 480px) {
-  .btn-github {
-    display: block;
-    float: left;
-    width: 48%;
-    margin: 2px;
-  }
-}
-.btn-google {
-  -webkit-transition: background-color 200ms ease;
-  -o-transition: background-color 200ms ease;
-  transition: background-color 200ms ease;
-  color: #fff !important;
-  font-weight: bold;
-  font-family: "Helvetica Neue", Helvetica, sans-serif;
-  background-color: #d34836;
-}
-.btn-google:hover {
-  -webkit-transition: background-color 200ms ease;
-  -o-transition: background-color 200ms ease;
-  transition: background-color 200ms ease;
-  background-color: #dc6e60;
-}
-@media (max-width: 480px) {
-  .btn-google {
-    display: block;
-    float: left;
-    width: 48%;
-    margin: 2px;
-  }
-}
-.btn-twitter {
-  -webkit-transition: background-color 200ms ease;
-  -o-transition: background-color 200ms ease;
-  transition: background-color 200ms ease;
-  color: #fff !important;
-  font-weight: bold;
-  font-family: "Helvetica Neue", Helvetica, sans-serif;
-  background-color: #55acee;
-}
-.btn-twitter:hover {
-  -webkit-transition: background-color 200ms ease;
-  -o-transition: background-color 200ms ease;
-  transition: background-color 200ms ease;
-  background-color: #83c3f3;
-}
-@media (max-width: 480px) {
-  .btn-twitter {
-    display: block;
-    float: left;
-    width: 48%;
-    margin: 2px;
-  }
-}
-.btn-linkedin {
-  -webkit-transition: background-color 200ms ease;
-  -o-transition: background-color 200ms ease;
-  transition: background-color 200ms ease;
-  color: #fff !important;
-  font-weight: bold;
-  font-family: "Helvetica Neue", Helvetica, sans-serif;
-  background-color: #4875b4;
-}
-.btn-linkedin:hover {
-  -webkit-transition: background-color 200ms ease;
-  -o-transition: background-color 200ms ease;
-  transition: background-color 200ms ease;
-  background-color: #6b90c4;
-}
-@media (max-width: 480px) {
-  .btn-linkedin {
-    display: block;
-    float: left;
-    width: 48%;
-    margin: 2px;
-  }
-}
-.btn-brand {
-  color: #28c3ab;
-  border: 1px solid #28c3ab;
-  background-color: transparent;
-}
-.btn-brand:hover {
-  color: #45d9c2;
-}
-.btn-brand.btn-lg {
-  padding: 20px 25px;
-  border-width: 2px;
 }
 header {
   position: fixed;
