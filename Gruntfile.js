@@ -46,18 +46,6 @@ module.exports = function(grunt) {
       '<%= site.dist %>/_layouts'
     ],
 
-    jshint: {
-      init: {
-        src: ['Gruntfile.js']
-      },
-      app: {
-        options: {
-          jshintrc: '.jshintrc'
-        },
-        src: ['<%= site.app %>/assets/js/**/*.js']
-      }
-    },
-
     less: {
       'ocean-dark': {
         options: {
@@ -173,6 +161,20 @@ module.exports = function(grunt) {
         src: ['*.html', '**/*.html'],
         dest: '<%= site.dist %>'
       }
+    },
+
+    jshint: {
+      init: {
+        src: ['Gruntfile.js']
+      },
+      app: {
+        options: {
+          jshintrc: '.jshintrc'
+        },
+        src: [
+          '<%= site.app %>/assets/js/**/*.js'
+        ]
+      }
     }
   });
 
@@ -187,6 +189,7 @@ module.exports = function(grunt) {
   ]);
 
   grunt.registerTask('test', [
+    'jshint'
   ]);
 
   grunt.registerTask('theme', function (theme) {
@@ -209,10 +212,9 @@ module.exports = function(grunt) {
     if (theme === 'dark') {
       grunt.config('site.dist', '_dist_ocean-dark');
       grunt.task.run([
-
         'less:ocean-dark',
-        'less:ocean-dark-dist',
+        'less:ocean-dark-dist'
       ]);
     }
-  })
+  });
 };

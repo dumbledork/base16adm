@@ -6,7 +6,7 @@
   "esnext":    true,
   "eqeqeq":    true,
   "expr":      true,
-  "immed":     true,
+  "immed":     false,
   "latedef":   false,
   "node":      true,
   "newcap":    true,
@@ -17,8 +17,5 @@
   "strict":    true,
   "trailing":  true,
   "undef":     true,
-  "unused":    false,
-  "predef"   : [
-    "angular"
-  ]
+  "unused":    false
 }
