@@ -39,6 +39,9 @@ menu:
     - label: "Home Page"
       icon:  "octicon octicon-file-text"
 
+    - label: "Content Page"
+      icon:  "octicon octicon-file-text"
+
     - label: "Contact Page"
       icon:  "octicon octicon-file-text"
 

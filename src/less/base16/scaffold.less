@@ -119,3 +119,33 @@ body {
   }
 }
 
+// Flex Box
+
+.flexbox {
+  display: flex;
+  width: 100%;
+  min-height: 100%;
+  padding: 10px;
+  background-color: #f4f4f4;
+
+  flex-flow: row wrap;
+  justify-content: center;
+  align-content: center;
+  align-items: stretch;
+}
+
+
+
+.flex-item {
+  width: 25%;
+  height: 200px;
+  margin: 4px;
+  text-align: center;
+  border: 3px solid rgba(0,0,0,.2);
+  background-color: tomato;
+  flex-grow: 0;
+
+  &:last-of-type {
+    flex-shrink: 1;
+  }
+}

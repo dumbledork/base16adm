@@ -42,39 +42,7 @@
 </head>
 <body>
 
-
-  {% include header.html %}
-
-  <div class="content-wrapper">
-    <div class="sidebar" role="complementary">
-      {% include sidebar.html %}
-    </div>
-
-    <div class="content" role="main">
-      <div class="page-heading">
-        <div class="page-heading-col">
-          <h1>
-            <span>{{ page.title }}</span>
-            <small>{{ page.lead }}</small>
-          </h1>
-        </div>
-
-        <div class="page-heading-col page-heading-crumb">
-          {% if page.title != "Dashboard"  %}
-          <ol class="breadcrumb pull-right">
-            <li><a href="{{ site.baseurl }}dashboard">Dashboard</a></li>
-            <li>{{ page.title }}</li>
-          </ol>
-          {% endif %}
-        </div>
-      </div>
-      {{ content }}
-    </div>
-  </div><!-- end of .content-wrapper -->
-
-  <footer>
-    {% include footer.html %}
-  </footer>
+  {{ content }}
 
   <!-- build:template
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>

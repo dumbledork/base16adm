@@ -25,6 +25,20 @@ module.exports = function(grunt) {
             ' * <%= pkg.license %> \n' +
             ' */',
 
+    watch: {
+      jshint: {
+        files: ['<%= site.app %>/assets/js/**/*.js'],
+        tasks: ['jshint:app']
+      },
+      less: {
+        files: [
+          '<%= site.src %>/less/*.less',
+          '<%= site.src %>/less/**/*.less'
+        ],
+        tasks: ['less:app']
+      }
+    },
+
     jekyll: {
       options: {
         // bundleExec: true,
@@ -40,10 +54,7 @@ module.exports = function(grunt) {
 
     clean: [
       '<%= site.dist %>/assets/lib',
-      '<%= site.dist %>/assets/css',
-      '<%= site.dist %>/assets/js',
-      '<%= site.dist %>/_includes',
-      '<%= site.dist %>/_layouts'
+      '<%= site.dist %>/assets/css'
     ],
 
     less: {
@@ -192,18 +203,24 @@ module.exports = function(grunt) {
     'jshint'
   ]);
 
-  grunt.registerTask('theme', function (theme) {
-    var tasks = [
-      'jekyll:dist',
-      'processhtml:dist',
-      'prettify:dist'
-    ];
+  grunt.registerTask('watchless', [
+    'less:ocean-dark',
+    'less:ocean-dark-dist',
+    'less:ocean-light',
+    'less:ocean-light-dist',
+    'watch:less'
+  ]);
 
+  grunt.registerTask('theme', function (theme) {
     grunt.config.requires('site.dist');
 
     if (theme === 'light') {
       grunt.config('site.dist', '_dist_ocean-light');
       grunt.task.run([
+        'jekyll:dist',
+        'clean',
+        'processhtml:dist',
+        'prettify:dist',
         'less:ocean-light',
         'less:ocean-light-dist',
       ]);
@@ -212,6 +229,10 @@ module.exports = function(grunt) {
     if (theme === 'dark') {
       grunt.config('site.dist', '_dist_ocean-dark');
       grunt.task.run([
+        'jekyll:dist',
+        'clean',
+        'processhtml:dist',
+        'prettify:dist',
         'less:ocean-dark',
         'less:ocean-dark-dist'
       ]);

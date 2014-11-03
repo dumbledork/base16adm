@@ -38,4 +38,5 @@ source:       app
 # Server
 port:         4001
 baseurl:      /
+localhost:    127.0.0.1
 destination:  _gh_pages
