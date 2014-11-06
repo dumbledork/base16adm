@@ -35,7 +35,7 @@ module.exports = function(grunt) {
           '<%= site.src %>/less/*.less',
           '<%= site.src %>/less/**/*.less'
         ],
-        tasks: ['less:app']
+        tasks: ['less']
       }
     },
 
@@ -201,6 +201,10 @@ module.exports = function(grunt) {
 
   grunt.registerTask('test', [
     'jshint'
+  ]);
+
+  grunt.registerTask('buildless', [
+    'less'
   ]);
 
   grunt.registerTask('watchless', [
