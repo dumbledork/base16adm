@@ -35,7 +35,10 @@ module.exports = function(grunt) {
           '<%= site.src %>/less/*.less',
           '<%= site.src %>/less/**/*.less'
         ],
-        tasks: ['less']
+        tasks: [
+          'less:ocean-dark',
+          'less:ocean-dark-dist'
+        ]
       }
     },
 
@@ -204,7 +207,8 @@ module.exports = function(grunt) {
   ]);
 
   grunt.registerTask('buildless', [
-    'less'
+    'less',
+    'watch:less'
   ]);
 
   grunt.registerTask('watchless', [
