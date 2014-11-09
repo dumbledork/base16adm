@@ -1,22 +1,236 @@
 
-// Container Structure
+// Container: Structure
 // -------------------------
 
 .commits-container {
-  @include clearfix();
+  .clearfix();
   padding: 0;
 
-  @media (min-width: 992px),
-         (max-width: 1200px) {
-    margin-left:  (@container-gutter-width / 2);
-    margin-right: (@container-gutter-width / 2);
-    padding: ((@container-gutter-width / 2) - 5);
+  @media (min-width: @screen-md),
+         (max-width: @screen-lg) {
+    margin-left:  (@grid-gutter-width / 2);
+    margin-right: (@grid-gutter-width / 2);
+    padding: ((@grid-gutter-width / 2) - 5);
   }
 
-  @media (min-width: 1000px),
-         (min-width: 1200px) {
-    width: @container-width;
+  @media (min-width: @screen-md),
+         (min-width: @screen-lg) {
+    width: @container-desktop;
     margin-left: auto;
     margin-right: auto;
+  }
+}
+
+// Group List: Structure
+// -------------------------
+
+.group-list-container {
+  .clearfix();
+  position: relative;
+  margin-left: (@grid-gutter-width / -2);
+  margin-right: (@grid-gutter-width / -2);
+  margin-bottom: (@grid-gutter-width - 10);
+  padding-left: @grid-gutter-width;
+
+  &:before {
+    position: absolute;
+    top: 0;
+    left: 6px;
+    z-index: -1;
+    content: " ";
+    display: block;
+    width: 2px;
+    height: 98.5%;
+  }
+
+  @media (max-width: @screen-xs) {
+    padding-left: (@grid-gutter-width / 2);
+
+    &:before { left: 2px; }
+  }
+}
+
+.group-list-title {
+  .clearfix();
+  display: block;
+  margin-top: (@grid-gutter-width / 2);
+  margin-left: -@grid-gutter-width;
+  margin-bottom: 0;
+  font-size: 13px;
+  line-height: 1;
+
+  @media (max-width: @screen-xs) {
+    margin-left:  -(@grid-gutter-width - 11)
+  }
+}
+
+// The List
+
+.group-list {
+  position: relative;
+  width: 100%;
+  padding: 0;
+}
+
+// List Item
+
+.group-list-item {
+  position: relative;
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  margin-top: -1px;
+
+  &:hover { z-index: 2; }
+}
+
+
+// List Sections
+
+.group-list-avatar,
+.group-list-body,
+.group-list-links {
+  display: table-cell;
+  vertical-align: top;
+  padding: 10px 10px 5px;
+
+  @media (max-width: @screen-xs) {
+    display: block;
+    float: left;
+    padding: 5px;
+  }
+}
+
+
+// List Avatar
+
+.group-list-avatar {
+  @media (max-width: @screen-xs) { width: 18%; }
+  @media (min-width: @screen-sm) { width: 6%; }
+  @media (min-width: @screen-md) { width: 5%; }
+  @media (min-width: @screen-lg) { width: 5%; }
+
+  img {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+
+// List Body
+
+.group-list-body {
+  width: 60%;
+
+  @media (max-width: @screen-xs) { width: 82%; }
+
+  .group-list-body-title,
+  .group-list-body-meta,
+  .group-list-body-desc {
+    margin-top: 0;
+  }
+
+  .group-list-body-title {
+    margin-bottom: 0;
+    padding: 0;
+
+    a:hover { text-decoration: underline; }
+  }
+
+    // Text Helpers
+
+    .message-link { }
+
+    .text-expander {
+      position: relative;
+      top: -1px;
+      display: inline-block;
+      margin-left: 5px;
+      line-height: 0;
+    }
+
+    .text-expander a {
+      display: inline-block;
+      height: 12px;
+      padding: 0 5px;
+      line-height: 6px;
+      text-decoration: none;
+      vertical-align: middle;
+      border-radius: 1px;
+    }
+
+    .text-expander a:hover { }
+
+  // Group List: Body Meta
+
+  .group-list-body-meta {
+    margin-bottom: 5px;
+  }
+
+  // Group List: Body Description
+
+  .group-list-body-desc {
+    margin: 0;
+    padding-left: ((@grid-gutter-width / 2) - 5);
+  }
+}
+
+
+// List Links
+
+.group-list-links {
+  width: 30%;
+  text-align: right;
+  vertical-align: middle;
+}
+
+// Group List Button Group
+
+.group-list-btn-group {
+  display: inline-block;
+  margin-left: 5px;
+  margin-right: 5px;
+
+  a, button {
+    position: relative;
+    display: inline-block;
+    height: 29px;
+    margin-left: -3px;
+    margin-right: -2px;
+    padding: 5px 8px;
+    line-height: 1.4;
+    vertical-align: middle;
+    background-color: #fff;
+
+    &:hover {
+      z-index: 2;
+    }
+
+    &:first-child {
+      border-top-left-radius: 3px;
+      border-bottom-left-radius: 3px;
+    }
+
+    &:last-child {
+      border-top-right-radius: 3px;
+      border-bottom-right-radius: 3px;
+    }
+
+    span {
+      font-size: 12px;
+      font-weight: bold;
+    }
+  }
+
+  &.group-list-btn-group-large a,
+  &.group-list-btn-group-large button {
+    height: 40px;
+    padding: 10px 16px;
+
+    span { font-size: 18px; }
+  }
+
+  @media (max-width: @screen-xs) {
+    display: none;
   }
 }
