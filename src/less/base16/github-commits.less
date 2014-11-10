@@ -36,7 +36,7 @@
     position: absolute;
     top: 0;
     left: 6px;
-    z-index: -1;
+    z-index: 1;
     content: " ";
     display: block;
     width: 2px;
@@ -52,10 +52,12 @@
 
 .group-list-title {
   .clearfix();
+  position: relative;
+  z-index: 2;
   display: block;
   margin-top: (@grid-gutter-width / 2);
   margin-left: -@grid-gutter-width;
-  margin-bottom: 0;
+  margin-bottom: (@grid-gutter-width / 2);
   font-size: 13px;
   line-height: 1;
 
@@ -126,8 +128,11 @@
 
   .group-list-body-title,
   .group-list-body-meta,
-  .group-list-body-desc {
-    margin-top: 0;
+  .group-list-body-desc { margin-top: 0; }
+
+  .group-list-body-meta {
+    padding-top: 2px;
+    padding-bottom: 2px;
   }
 
   .group-list-body-title {
@@ -137,29 +142,29 @@
     a:hover { text-decoration: underline; }
   }
 
-    // Text Helpers
+  // Text Helpers
 
-    .message-link { }
+  .message-link { }
 
-    .text-expander {
-      position: relative;
-      top: -1px;
-      display: inline-block;
-      margin-left: 5px;
-      line-height: 0;
-    }
+  .text-expander {
+    position: relative;
+    top: -1px;
+    display: inline-block;
+    margin-left: 5px;
+    line-height: 0;
+  }
 
-    .text-expander a {
-      display: inline-block;
-      height: 12px;
-      padding: 0 5px;
-      line-height: 6px;
-      text-decoration: none;
-      vertical-align: middle;
-      border-radius: 1px;
-    }
+  .text-expander a {
+    display: inline-block;
+    height: 12px;
+    padding: 0 5px;
+    line-height: 6px;
+    text-decoration: none;
+    vertical-align: middle;
+    border-radius: 1px;
+  }
 
-    .text-expander a:hover { }
+  .text-expander a:hover { }
 
   // Group List: Body Meta
 
@@ -170,7 +175,9 @@
   // Group List: Body Description
 
   .group-list-body-desc {
-    margin: 0;
+    margin-bottom: 4px;
+    padding-top: 0;
+    padding-bottom: 0;
     padding-left: ((@grid-gutter-width / 2) - 5);
   }
 }
@@ -233,4 +240,42 @@
   @media (max-width: @screen-xs) {
     display: none;
   }
+}
+
+// Group List: Skin
+// -------------------------
+
+.group-list-container {
+  &:before { background-color: fade(lighten(@content-basecolor, 10%), 65%); }
+
+  .group-list-title {
+    background-color: @content-basecolor;
+  }
+
+  .group-list-item {
+    border: 1px solid lighten(@content-basecolor, 10%);
+
+    &:first-child {
+      border-top-right-radius: @border-radius-base;
+      border-top-left-radius: @border-radius-base;
+    }
+
+    &:last-child {
+      border-bottom-right-radius: @border-radius-base;
+      border-bottom-left-radius: @border-radius-base;
+    }
+
+    &:hover {
+      background-color: fade(lighten(@content-basecolor, 10%), 25%);
+    }
+  }
+
+  .group-list-body-meta {
+    font-size: 11px;
+  }
+
+  .group-list-body-desc {
+    border-left: 2px solid fade(lighten(@content-basecolor, 10%), 65%);
+  }
+
 }
