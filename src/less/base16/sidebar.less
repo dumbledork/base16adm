@@ -3,11 +3,6 @@
 // -----------------
 
 .sidebar {
-  @media (max-width: @screen-xs),
-         (max-width: @screen-xs-max) {
-    .sidebar.mini();
-  }
-
   .sidebar-inner {
     position: relative;
     min-height: 100%;
@@ -42,6 +37,11 @@
   .dropdown-menu .dropdown-header {
     padding: 8px 18px;
   }
+
+  @media (max-width: @screen-xs),
+         (max-width: @screen-xs-max) {
+    .sidebar.mini();
+  }
 }
 
 // Sidebar: Footer Links Structure
@@ -56,7 +56,9 @@
   width: 100%;
   min-height: 40px;
 
-  a, small { color: lighten(@sidebar-basecolor, 15%); }
+  a small {
+    display: block;
+  }
 
   a {
     .transition(color .3s ease);

@@ -6916,48 +6916,6 @@ header .brand-navigation .navbar-default {
   border-color: transparent;
   background-color: #e94745;
 }
-@media (max-width: 480px), (max-width: 767px) {
-  .sidebar {
-    -webkit-transition: width 0.3s ease;
-    -o-transition: width 0.3s ease;
-    transition: width 0.3s ease;
-    width: 64px;
-  }
-  .sidebar .label-full,
-  .sidebar .list-group-item > i {
-    -webkit-transition: all 0.4s ease;
-    -o-transition: all 0.4s ease;
-    transition: all 0.4s ease;
-    -webkit-transform: translate(-999px, 0);
-    -ms-transform: translate(-999px, 0);
-    -o-transform: translate(-999px, 0);
-    transform: translate(-999px, 0);
-    position: absolute;
-    z-index: -1;
-    opacity: 0;
-  }
-  .sidebar .label-icon {
-    -webkit-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
-    height: auto;
-    opacity: 1;
-    text-align: center;
-  }
-  .sidebar .label-icon .badge {
-    position: absolute;
-    top: -5px;
-    right: -5px;
-  }
-  .sidebar .sidebar-footlinks a {
-    display: block;
-    width: 100%;
-    margin-left: 0;
-    margin-right: 0;
-    padding-left: 2px;
-    padding-right: 2px;
-  }
-}
 .sidebar .sidebar-inner {
   position: relative;
   min-height: 100%;
@@ -7005,6 +6963,48 @@ header .brand-navigation .navbar-default {
 .sidebar .dropdown-menu .dropdown-header {
   padding: 8px 18px;
 }
+@media (max-width: 480px), (max-width: 767px) {
+  .sidebar {
+    -webkit-transition: width 0.3s ease;
+    -o-transition: width 0.3s ease;
+    transition: width 0.3s ease;
+    width: 64px;
+  }
+  .sidebar .label-full,
+  .sidebar .list-group-item > i {
+    -webkit-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+    -webkit-transform: translate(-999px, 0);
+    -ms-transform: translate(-999px, 0);
+    -o-transform: translate(-999px, 0);
+    transform: translate(-999px, 0);
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+  }
+  .sidebar .label-icon {
+    -webkit-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    height: auto;
+    opacity: 1;
+    text-align: center;
+  }
+  .sidebar .label-icon .badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+  }
+  .sidebar .sidebar-footlinks a {
+    display: block;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 2px;
+    padding-right: 2px;
+  }
+}
 .sidebar-footlinks {
   position: absolute;
   bottom: 0;
@@ -7029,9 +7029,8 @@ header .brand-navigation .navbar-default {
 .sidebar-footlinks:after {
   clear: both;
 }
-.sidebar-footlinks a,
-.sidebar-footlinks small {
-  color: #434d5c;
+.sidebar-footlinks a small {
+  display: block;
 }
 .sidebar-footlinks a {
   -webkit-transition: color 0.3s ease;
